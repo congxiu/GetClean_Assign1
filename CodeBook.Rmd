@@ -1,0 +1,26 @@
+---
+title: "CodeBook"
+author: "CX"
+date: "07/19/2014"
+output: html_document
+---
+```{r}
+setwd('/Users/xc/datasciencecoursera/GetClean_Assign1')
+my_data <- read.table('./ave_data.txt')
+head(my_data, 3)
+```
+
+This data set is based on the data set created through steps 1-4, in the assignment. The data set is created by merging train and test data, then extracting all the mean and standard deviation columns, and then calculating the average of these variables across all subjects and activities.
+
+The first two columns are 'subject' and 'labels', which shows on which subject and which activity the average of other variables are calculated. 
+```{r}
+head(my_data[, 1:2])
+tail(my_data[, 1:2])
+```
+
+The rest 66 variables are the average of the mean and std we previously extracted from the original data set, these average are calculated across different subject and activity combination. 
+```{r}
+names(my_data)[3:68]
+```
+
+More detailed info on these features can be found in 'features_info.txt' in the original data set. Details on how the data set is produced out of the original data can be found in 'README.html'.
